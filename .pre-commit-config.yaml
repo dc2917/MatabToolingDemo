@@ -1,0 +1,18 @@
+repos:
+  - repo: local
+
+    hooks:
+      - id: mh_style
+        name: mh_style
+        entry: mh_style
+        args: [--fix]
+        files: ^(.*\.m)$
+        language: python
+        additional_dependencies: [miss_hit_core]
+
+      - id: mh_lint
+        name: mh_lint
+        entry: mh_lint
+        files: ^(.*\.m)$
+        language: python
+        additional_dependencies: [miss_hit]
