@@ -1,0 +1,38 @@
+name: Build and test
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+  workflow_call:
+
+jobs:
+  qa:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.14'
+      - name: Install dependencies
+        shell: bash
+        run: pip install -r dev-requirements.txt
+      - name: Run pre-commit hooks
+        shell: bash
+        run: pre-commit run --all-files
+  test:
+    name: Run test suite
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+      - name: Set up MATLAB
+        uses: matlab-actions/setup-matlab@v3
+      - name: Run MATLAB unit tests
+        uses: matlab-actions/run-tests@v3
+        with:
+          select-by-tag: Unit
+          generate-summary: true
