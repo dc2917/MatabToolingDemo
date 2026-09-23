@@ -1,0 +1,6 @@
+line_length: 88
+regex_parameter_name: "[a-z]+(_[a-z]+)*"
+regex_class_name: "([A-Z][a-z]*)+"
+regex_function_name: "([a-z][A-Z]*)+"
+regex_method_name: "([a-z][A-Z]*)+"
+suppress_rule: "copyright_notice"
