@@ -35,4 +35,5 @@ jobs:
         uses: matlab-actions/run-tests@v3
         with:
           select-by-tag: Unit
+          code-coverage-cobertura: coverage.xml
           generate-summary: true
