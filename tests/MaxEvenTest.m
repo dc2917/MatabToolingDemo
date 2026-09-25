@@ -38,5 +38,13 @@ classdef MaxEvenTest < matlab.unittest.TestCase
             test_case.verifyEqual(actual, expected);
         end
 
+        function testEmpty(test_case)
+            % TESTEMPTY Check maxEven for empty input
+            actual = maxEven([]);
+            expected = double.empty(0, 0);
+
+            test_case.verifyEqual(actual, expected);
+        end
+
     end
 end
